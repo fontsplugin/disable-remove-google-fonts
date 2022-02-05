@@ -1,12 +1,12 @@
 === Disable and Remove Google Fonts ===
-Contributors: DannyCooper, googlefonts
+Contributors: DannyCooper
 Tags: google, gdpr, dsgvo, google fonts, disable google fonts, optimize, optimization, speed
 Requires at least: 4.8
-Tested up to: 5.8
+Tested up to: 5.9
 License: GPLv2 or later
 Stable tag: trunk
 
-Improve frontend performance by disabling Google Fonts.
+Improve frontend performance by disabling Google Fonts. GDPR-friendly.
 
 == Description ==
 Improve frontend performance by disabling [Google Fonts](https://wordpress.org/plugins/olympus-google-fonts/) loaded by themes and plugins.
@@ -66,6 +66,10 @@ Upload 'Disable and Remove Google Fonts', activate it, and you're done!
 We are 99.99% certain it will, if it doesn't then please create a [support ticket](https://wordpress.org/support/plugin/disable-remove-google-fonts#new-post).
 
 == Changelog ==
+
+= 1.3.3 =
+
+* Add compatibility for Anders Noren's (@anlino) themes.
 
 = 1.3.2 =
 
