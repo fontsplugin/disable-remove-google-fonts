@@ -31,8 +31,9 @@ function drgf_dequeueu_fonts() {
 	// Dequeue the Jupiter theme font loader.
 	wp_dequeue_script( 'mk-webfontloader' );
 
-	// Remove the Sydney theme resource hints.
+	// Remove the aThemes resource hints.
 	remove_action( 'wp_head', 'sydney_preconnect_google_fonts' );
+	remove_action( 'wp_head', 'botiga_preconnect_google_fonts' );
 
 	global $wp_styles;
 
