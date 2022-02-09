@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.3.4
+ * Version: 1.3.5
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -21,6 +21,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Dequeue Google Fonts based on URL.
  */
 function drgf_dequeueu_fonts() {
+
+	// Remove fonts added by the Divi Extra theme
+	remove_action( 'wp_footer', 'et_builder_print_font' );
+
+	// Dequeue Google Fonts loaded by Revolution Slider.
+	remove_action( 'wp_footer', array( 'RevSliderFront', 'load_google_fonts' ) );
+
+	// Dequeue the Jupiter theme font loader.
+	wp_dequeue_script( 'mk-webfontloader' );
+
+	// Remove the Sydney theme resource hints.
+	remove_action( 'wp_head', 'sydney_preconnect_google_fonts' );
+
 	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
@@ -56,15 +69,6 @@ function drgf_dequeueu_fonts() {
 			}
 		}
 	}
-
-	// Remove fonts added by the Divi Extra theme
-	remove_action( 'wp_footer', 'et_builder_print_font' );
-
-	// Dequeue Google Fonts loaded by Revolution Slider.
-	remove_action( 'wp_footer', array( 'RevSliderFront', 'load_google_fonts' ) );
-
-	// Dequeue the Jupiter theme font loader.
-	wp_dequeue_script( 'mk-webfontloader' );
 
 }
 add_action( 'wp_enqueue_scripts', 'drgf_dequeueu_fonts', 9999 );
