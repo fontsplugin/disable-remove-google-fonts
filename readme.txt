@@ -26,6 +26,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Sydney
 * Storefront
 * Hestia
+* Hueman
 * Zerif Lite
 * Vantage
 * ColorMag
