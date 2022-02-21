@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.3.6
+ * Version: 1.3.7
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -70,7 +70,7 @@ function drgf_dequeueu_fonts() {
 			}
 		}
 	}
-
+	remove_action( 'wp_head', 'hu_print_gfont_head_link', 2 );
 }
 add_action( 'wp_enqueue_scripts', 'drgf_dequeueu_fonts', 9999 );
 add_action( 'wp_print_styles', 'drgf_dequeueu_fonts', 9999 );
