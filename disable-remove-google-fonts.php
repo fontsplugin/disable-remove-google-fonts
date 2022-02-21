@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.3.5
+ * Version: 1.3.6
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -126,5 +126,14 @@ if ( ! function_exists( 'apollo13framework_get_web_fonts_static' ) ) {
 	 */
 	function apollo13framework_get_web_fonts_static() {
 		return;
+	}
+}
+
+if ( ! function_exists( 'hemingway_get_google_fonts_url' ) ) {
+	/**
+	 * Dequeue Google Fonts loaded by the Hemingway theme.
+	 */
+	function hemingway_get_google_fonts_url() {
+		return false;
 	}
 }
