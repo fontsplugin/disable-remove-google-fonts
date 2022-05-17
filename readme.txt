@@ -23,17 +23,18 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Twenty Seventeen
 * Twenty Nineteen
 * Twenty Twenty
+* Enfold
 * Sydney
-* Storefront
 * Hestia
 * Hueman
-* Zerif Lite
 * Vantage
 * ColorMag
 * Shapely
 * OnePress
 * JupiterX
+* Storefront
 * Divi Extra
+* Zerif Lite
 
 It will also remove Google Fonts loaded by the following plugins:
 
