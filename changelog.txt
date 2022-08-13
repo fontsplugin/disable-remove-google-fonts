@@ -1,3 +1,7 @@
+= 1.4.1 =
+
+* Change priority on wp_enqueue_scripts as some themes use 10000.
+
 = 1.4.0 =
 
 * Add compatibility for Appointment.
