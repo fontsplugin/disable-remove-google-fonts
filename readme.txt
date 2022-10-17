@@ -23,6 +23,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Twenty Seventeen
 * Twenty Nineteen
 * Twenty Twenty
+* Avada
 * Enfold
 * Sydney
 * Hestia

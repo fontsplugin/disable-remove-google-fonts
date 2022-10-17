@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.4.2
+ * Version: 1.4.3
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -160,3 +160,32 @@ add_action( 'init', 'drgf_remove_divi_preconnect' );
 function drgf_remove_divi_preconnect() {
 	remove_action( 'wp_enqueue_scripts', 'et_builder_preconnect_google_fonts', 9 );
 }
+
+/**
+ * Dequeue Google Fonts loaded by Avada theme.
+ */
+$fusion_options = get_option( 'fusion_options', false );
+if (
+		$fusion_options
+		&& isset( $fusion_options['gfonts_load_method'] )
+		&& $fusion_options['gfonts_load_method'] === 'cdn'
+	) {
+	add_filter(
+		'fusion_google_fonts',
+		function( $fonts ) {
+			return array();
+		},
+		99999
+	);
+}
+
+/**
+ * Avada caches the CSS output so we need to clear the
+ * cache once the fonts have been removed.
+ */
+function dgrf_flush_avada_cache() {
+	if ( function_exists( 'fusion_reset_all_caches' ) ) {
+		fusion_reset_all_caches();
+	}
+}
+register_activation_hook( __FILE__, 'dgrf_flush_avada_cache' );

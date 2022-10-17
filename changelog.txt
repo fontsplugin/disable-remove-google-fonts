@@ -1,3 +1,7 @@
+= 1.4.3 =
+
+* Add compatibility for Avada.
+
 = 1.4.2 =
 
 * Remove the preconnect hint to fonts.gstatic.com in the Divi theme.
