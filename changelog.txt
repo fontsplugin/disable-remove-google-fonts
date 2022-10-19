@@ -1,3 +1,7 @@
+= 1.4.4 =
+
+* Add compatibility for Vantage.
+
 = 1.4.3 =
 
 * Add compatibility for Avada.

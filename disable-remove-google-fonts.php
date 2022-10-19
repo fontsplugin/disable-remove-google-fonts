@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.4.3
+ * Version: 1.4.4
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -109,6 +109,12 @@ add_filter(
  * Dequeue Google Fonts loaded by the Hustle plugin.
  */
 add_filter( 'hustle_load_google_fonts', '__return_false' );
+
+/**
+ * Dequeue Google Fonts loaded by the Vantage theme.
+ */
+add_filter( 'vantage_import_google_fonts', '__return_false' );
+
 
 /**
  * Dequeue Google Fonts loaded by the Hustle plugin.
