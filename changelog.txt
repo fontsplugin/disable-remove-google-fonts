@@ -1,5 +1,9 @@
 = 1.4.4 =
 
+* Add compatibility for WPBakery.
+
+= 1.4.4 =
+
 * Add compatibility for Vantage.
 
 = 1.4.3 =

@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.4.4
+ * Version: 1.4.5
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -76,6 +76,7 @@ function drgf_dequeueu_fonts() {
 
 
 }
+
 add_action( 'wp_enqueue_scripts', 'drgf_dequeueu_fonts', PHP_INT_MAX );
 add_action( 'wp_print_styles', 'drgf_dequeueu_fonts', PHP_INT_MAX );
 
@@ -195,3 +196,32 @@ function dgrf_flush_avada_cache() {
 	}
 }
 register_activation_hook( __FILE__, 'dgrf_flush_avada_cache' );
+
+/**
+ * WPBakery enqueues fonts correctly using wp_enqueue_style
+ * but does it late so this is required.
+ */
+function dgrf_dequeue_wpbakery_fonts() {
+	global $wp_styles;
+
+	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
+		return;
+	}
+
+	$allowed = apply_filters(
+		'drgf_exceptions',
+		[ 'olympus-google-fonts' ]
+	);
+
+	foreach ( $wp_styles->registered as $style ) {
+		$handle = $style->handle;
+		$src    = $style->src;
+
+		if ( strpos( $src, 'fonts.googleapis' ) !== false ) {
+			if ( ! array_key_exists( $handle, array_flip( $allowed ) ) ) {
+				wp_dequeue_style( $handle );
+			}
+		}
+	}
+}
+add_action( 'wp_footer', 'dgrf_dequeue_wpbakery_fonts' );

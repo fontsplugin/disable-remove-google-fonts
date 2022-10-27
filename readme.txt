@@ -2,7 +2,7 @@
 Contributors: DannyCooper
 Tags: google, gdpr, dsgvo, google fonts, disable google fonts, optimize, optimization, speed
 Requires at least: 4.8
-Tested up to: 6.0
+Tested up to: 6.1
 License: GPLv2 or later
 Stable tag: trunk
 
@@ -44,6 +44,7 @@ It will also remove Google Fonts loaded by the following plugins:
 * Elementor
 * Beaver Builder
 * Revolution Slider
+* WPBakery (Visual Composer)
 
 As well as improving page load speed, removing Google Font references can also aid with GDPR and DSGVO compliance.
 
