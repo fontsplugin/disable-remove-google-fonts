@@ -13,7 +13,7 @@ Improve frontend performance by disabling [Google Fonts](https://wordpress.org/p
 
 While this plugin removes Google Fonts from as many themes and plugins as possible, some require additional steps, we have detailed those here: [Remove Google Fonts from WordPress](https://fontsplugin.com/remove-disable-google-fonts/)
 
-After installing this plugin, clear your website cache and test your site using the free [Google Fonts Checker](https://fontsplugin.com/remove-disable-google-fonts/).
+After installing this plugin, clear your website cache and test your site using the free [Google Fonts Checker](https://fontsplugin.com/google-fonts-checker).
 
 = Plugin Compatibility =
 
