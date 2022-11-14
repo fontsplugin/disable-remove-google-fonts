@@ -32,6 +32,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Hueman
 * Vantage
 * ColorMag
+* Kadence
 * Shapely
 * OnePress
 * JupiterX

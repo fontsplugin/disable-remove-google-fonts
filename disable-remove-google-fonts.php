@@ -5,7 +5,7 @@
  * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.4.6
+ * Version: 1.4.7
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *
@@ -225,3 +225,8 @@ function dgrf_dequeue_wpbakery_fonts() {
 	}
 }
 add_action( 'wp_footer', 'dgrf_dequeue_wpbakery_fonts' );
+
+/**
+ * Dequeue Google Fonts loaded by Kadence theme.
+ */
+add_filter( 'kadence_theme_google_fonts_array', '__return_empty_array' );
