@@ -78,7 +78,6 @@ function drgf_dequeueu_fonts() {
 
 	remove_action('wp_head', 'appointment_load_google_font');
 
-
 }
 
 add_action( 'wp_enqueue_scripts', 'drgf_dequeueu_fonts', PHP_INT_MAX );
@@ -235,3 +234,8 @@ add_action( 'wp_footer', 'drgf_dequeue_wpbakery_fonts' );
  */
 add_filter( 'kadence_theme_google_fonts_array', '__return_empty_array' );
 add_filter( 'kadence_print_google_fonts', '__return_false' );
+
+/**
+ * Dequeue Google Fonts loaded by X theme.
+ */
+add_filter( 'cs_load_google_fonts', '__return_false' );
