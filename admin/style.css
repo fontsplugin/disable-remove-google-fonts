@@ -5,27 +5,15 @@
 
 .drgf-admin__wrap p {
 	font-size: 16px;
+	line-height: 1.6;
 	margin-top: 0;
 	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-}
-
-.drgf-admin__wrap p {
-	line-height: 1.6;
 }
 
 .drgf-admin__wrap h3 {
 	font-size: 1.1rem !important;
 	margin: 1.5em 0 1em;
 	font-weight: bold;
-}
-
-.drgf-admin__wrap ul {
-	list-style: disc;
-	margin-left: 32px
-}
-
-.drgf-admin__wrap ul li {
-	margin-bottom: 8px
 }
 
 .drgf-admin__content {
@@ -45,31 +33,11 @@
 .drgf-admin__content__header h1 {
 	font-size: 24px;
 	padding: 50px 50px 0;
-	margin: 0
+	margin: 0;
 }
 
 .drgf-admin__content__inner {
-	background-color: #fff;
 	padding: 25px 50px 50px;
-}
-
-.drgf-admin__sidebar__inner {
-	background-color: white;
-}
-
-.drgf-admin__sidebar__header {
-	background-color: #0d72a7
-}
-
-.drgf-admin__sidebar__plugin {
-	padding: 30px;
-}
-
-.drgf-admin__sidebar__header h2 {
-	color: #fff;
-	font-size: 16px;
-	padding: 20px 30px;
-	margin: 0
 }
 
 .drgf-admin__button.button {
@@ -79,18 +47,17 @@
 	padding: 4px 16px;
 	font-size: 16px;
 	font-weight: 600;
-	height: auto
+	height: auto;
 }
+
 .drgf-admin__button.button:hover {
 	color: #fff;
 	border-color: #a10000;
 	background: #a10000;
 	padding: 4px 16px;
-
 }
 
 @media only screen and (max-width: 960px) {
-
 	.drgf-admin__content {
 		max-width: 98%;
 		float: none;
@@ -99,13 +66,4 @@
 	.drgf-admin__wrap {
 			margin: 1%;
 	}
-
-}
-@media only screen and (max-width: 480px) {
-
-	.drgf-admin__wrap .button {
-		width: 100%;
-		margin-left: 0;
-	}
-
 }

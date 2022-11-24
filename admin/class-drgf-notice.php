@@ -94,7 +94,7 @@ endif;
 
 $message = sprintf(
 	// translators: %s Link to DRGF welcome page.
-	__( 'Thank you for installing <strong>Disable & Remove Google Fonts</strong>! <a href="%s">Finish the setup process.</a>.', 'olympus-google-fonts' ),
+	__( 'Thank you for installing <strong>Disable & Remove Google Fonts</strong>! <a href="%s">Finish the setup process</a>.', 'olympus-google-fonts' ),
 	esc_url( admin_url( '/themes.php?page=drgf' ) )
 );
 

@@ -19,7 +19,6 @@ class DRGF_Admin {
 		add_action( 'admin_menu', array( $this, 'add_submenu' ), 10 );
 		add_action( 'admin_init', array( $this, 'admin_redirect' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
-		add_action( 'wp_ajax_ogf_dismiss_guide', array( $this, 'dismiss_guide' ) );
 	}
 
 	function activate() {
@@ -67,6 +66,7 @@ function admin_redirect() {
 	 * Options page callback
 	 */
 	public function render_welcome_page() {
+		update_option( 'dismissed-drgf-welcome', true );
 		$site_url = site_url( '', 'https' );
 		$url      = preg_replace( '(^https?://)', '', $site_url );
 		?>
@@ -101,14 +101,6 @@ function admin_redirect() {
 				</div>
 			</div>
 			<?php
-	}
-
-	/**
-	 * AJAX handler to store the state of dismissible notices.
-	 */
-	public function dismiss_guide() {
-		// Store it in the options table.
-		update_option( 'drgf_dismiss_guide', true );
 	}
 }
 
