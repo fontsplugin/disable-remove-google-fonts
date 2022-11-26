@@ -38,7 +38,6 @@ function drgf_dequeueu_fonts() {
 	// Dequeue the Jupiter theme font loader.
 	wp_dequeue_script( 'mk-webfontloader' );
 
-
 	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
@@ -68,16 +67,16 @@ function drgf_dequeueu_fonts() {
 	 */
 	foreach ( $wp_styles->registered as $style ) {
 		foreach( $style->deps as $dep ) {
-			if ( ( strpos( $dep, 'google-fonts' ) !== false ) || ( strpos( $dep, 'google_fonts' ) !== false ) || ( strpos( $dep, 'googlefonts' ) !== false ) ) {
+			$strings = ['google-fonts', 'google_fonts', 'googlefonts', 'bookyourtravel-heading-font', 'bookyourtravel-base-font', 'bookyourtravel-font-icon', 'twb-open-sans'];
+			if ( drgf_strposa( $dep, $strings ) === true ) {
 				$wp_styles->remove( $dep );
 				$wp_styles->add( $dep, '' );
 			}
 		}
 	}
+
 	remove_action( 'wp_head', 'hu_print_gfont_head_link', 2 );
-
 	remove_action('wp_head', 'appointment_load_google_font');
-
 }
 
 add_action( 'wp_enqueue_scripts', 'drgf_dequeueu_fonts', PHP_INT_MAX );
@@ -239,3 +238,15 @@ add_filter( 'kadence_print_google_fonts', '__return_false' );
  * Dequeue Google Fonts loaded by X theme.
  */
 add_filter( 'cs_load_google_fonts', '__return_false' );
+
+/**
+ * Helper function to run strpos() using an array as the needle.
+ */
+function drgf_strposa( $haystack, $needles, $offset = 0 ) {
+  $chr = array();
+  foreach( $needles as $needle)  {
+      $res = strpos( $haystack, $needle, $offset );
+      if ( $res !== false ) return true;
+  }
+	return false;
+}
