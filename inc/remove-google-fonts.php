@@ -3,20 +3,20 @@
  * Remove DNS prefetch, preconnect and preload headers.
  */
 function drgf_remove_prefetch( $urls, $relation_type ) {
- if ( 'dns-prefetch' === $relation_type ) {
-	 $urls = array_diff( $urls, array( 'fonts.googleapis.com' ) );
- } elseif ( 'preconnect' === $relation_type || 'preload' === $relation_type ) {
-	 foreach ( $urls as $key => $url ) {
-		 if ( ! isset( $url['href'] ) ) {
-			 continue;
-		 }
-		 if ( preg_match( '/\/\/fonts\.(gstatic|googleapis)\.com/', $url['href'] ) ) {
-			 unset( $urls[ $key ] );
-		 }
-	 }
- }
+	if ( 'dns-prefetch' === $relation_type ) {
+		$urls = array_diff( $urls, array( 'fonts.googleapis.com' ) );
+	} elseif ( 'preconnect' === $relation_type || 'preload' === $relation_type ) {
+		foreach ( $urls as $key => $url ) {
+			if ( ! isset( $url['href'] ) ) {
+				continue;
+			}
+			if ( preg_match( '/\/\/fonts\.(gstatic|googleapis)\.com/', $url['href'] ) ) {
+				unset( $urls[ $key ] );
+			}
+		}
+	}
 
- return $urls;
+	return $urls;
 }
 add_filter( 'wp_resource_hints', 'drgf_remove_prefetch', PHP_INT_MAX, 2 );
 
@@ -204,6 +204,7 @@ register_activation_hook( __FILE__, 'drgf_flush_avada_cache' );
  * but does it late so this is required.
  */
 function drgf_dequeue_wpbakery_fonts() {
+
 	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
@@ -250,3 +251,19 @@ function drgf_strposa( $haystack, $needles, $offset = 0 ) {
   }
 	return false;
 }
+
+/**
+ * Dequeue Google Fonts loaded by Unyson.
+ */
+function drgf_remove_unyson_fonts() {
+	remove_action( 'wp_enqueue_scripts', array( 'Artey_Unyson_Google_Fonts', 'output_url' ), 9999 );
+};
+add_action('init', 'drgf_remove_unyson_fonts');
+
+/**
+ * Dequeue Google Fonts loaded in wp-admin by the Sucuri plugin.
+ */
+function drgf_remove_sucuri_admin_fonts() {
+	wp_dequeue_style( 'sucuriscan-google-fonts' );
+}
+add_action( 'admin_enqueue_scripts', 'drgf_remove_sucuri_admin_fonts' );
