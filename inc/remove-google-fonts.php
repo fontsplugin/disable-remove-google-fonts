@@ -118,7 +118,6 @@ add_filter( 'hustle_load_google_fonts', '__return_false' );
  */
 add_filter( 'vantage_import_google_fonts', '__return_false' );
 
-
 /**
  * Dequeue Google Fonts loaded by the Hustle plugin.
  */
@@ -154,21 +153,21 @@ if ( ! function_exists( 'hemingway_get_google_fonts_url' ) ) {
 /**
  * Dequeue Google Fonts loaded by the Avia framework (Enfold theme).
  */
-add_action( 'init', 'drgf_enfold_customization_switch_fonts' );
 function drgf_enfold_customization_switch_fonts() {
-		if ( class_exists( 'avia_style_generator' ) ) {
-	    global $avia;
-	    $avia->style->print_extra_output = false;
-		}
+	if ( class_exists( 'avia_style_generator' ) ) {
+		global $avia;
+		$avia->style->print_extra_output = false;
+	}
 }
+add_action( 'init', 'drgf_enfold_customization_switch_fonts' );
 
 /**
  * Remove the preconnect hint to fonts.gstatic.com.
  */
-add_action( 'init', 'drgf_remove_divi_preconnect' );
 function drgf_remove_divi_preconnect() {
 	remove_action( 'wp_enqueue_scripts', 'et_builder_preconnect_google_fonts', 9 );
 }
+add_action( 'init', 'drgf_remove_divi_preconnect' );
 
 /**
  * Dequeue Google Fonts loaded by Avada theme.
@@ -204,7 +203,6 @@ register_activation_hook( __FILE__, 'drgf_flush_avada_cache' );
  * but does it late so this is required.
  */
 function drgf_dequeue_wpbakery_fonts() {
-
 	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
@@ -244,12 +242,12 @@ add_filter( 'cs_load_google_fonts', '__return_false' );
  * Helper function to run strpos() using an array as the needle.
  */
 function drgf_strposa( $haystack, $needles, $offset = 0 ) {
-  $chr = array();
-  foreach( $needles as $needle)  {
-      $res = strpos( $haystack, $needle, $offset );
-      if ( $res !== false ) return true;
-  }
-	return false;
+	$chr = array();
+	foreach( $needles as $needle)  {
+		$res = strpos( $haystack, $needle, $offset );
+		if ( $res !== false ) return true;
+	}
+return false;
 }
 
 /**
@@ -267,3 +265,16 @@ function drgf_remove_sucuri_admin_fonts() {
 	wp_dequeue_style( 'sucuriscan-google-fonts' );
 }
 add_action( 'admin_enqueue_scripts', 'drgf_remove_sucuri_admin_fonts' );
+
+/**
+ * Dequeue Google Fonts loaded by Kadence Blocks.
+ */
+add_filter( 'kadence_blocks_print_google_fonts', '__return_false' );
+
+/**
+ * Dequeue Google Fonts loaded in GeneratePress.
+ */
+function drgf_remove_generatepress_fonts() {
+	wp_dequeue_style( 'generate-google-fonts' );
+}
+add_action( 'wp_enqueue_scripts', 'drgf_remove_generatepress_fonts', 99 );

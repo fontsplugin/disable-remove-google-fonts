@@ -2,10 +2,10 @@
 /**
  * Plugin Name: Disable & Remove Google Fonts
  * Plugin URI: https://wordpress.org/plugins/disable-remove-google-fonts/
- * Description: Optimize frontend performance by disabling Google Fonts. GDPR-friendly.
+ * Description: Optimize frontend performance by removing Google Fonts. GDPR-friendly.
  * Author: Fonts Plugin
  * Author URI: https://fontsplugin.com
- * Version: 1.5.2
+ * Version: 1.5.3
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  *

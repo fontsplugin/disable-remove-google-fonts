@@ -1,3 +1,7 @@
+= 1.5.3 =
+
+* Add compatibility for Kadence Blocks and GeneratePress.
+
 = 1.5.2 =
 
 * Add compatibility for Unyson and Sucuri.

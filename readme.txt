@@ -27,6 +27,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Twenty Seventeen
 * Twenty Nineteen
 * Twenty Twenty
+* GeneratePress
 * Avada
 * Enfold
 * Sydney
@@ -49,6 +50,7 @@ It will also remove Google Fonts loaded by the following plugins:
 * Elementor
 * Beaver Builder
 * Revolution Slider
+* Kadence Blocks
 * WPBakery (Visual Composer)
 
 As well as improving page load speed, removing Google Font references can also aid with GDPR and DSGVO compliance.
