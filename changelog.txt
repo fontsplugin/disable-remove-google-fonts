@@ -1,3 +1,7 @@
+= 1.5.4 =
+
+* Add compatibility for Ajax Search Lite.
+
 = 1.5.3 =
 
 * Add compatibility for Kadence Blocks and GeneratePress.

@@ -278,3 +278,9 @@ function drgf_remove_generatepress_fonts() {
 	wp_dequeue_style( 'generate-google-fonts' );
 }
 add_action( 'wp_enqueue_scripts', 'drgf_remove_generatepress_fonts', 99 );
+
+/**
+ * Dequeue Google Fonts loaded by Ajax Search lite.
+ */
+add_filter( 'asl_custom_fonts', '__return_empty_array' );
+

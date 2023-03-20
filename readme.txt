@@ -50,6 +50,7 @@ It will also remove Google Fonts loaded by the following plugins:
 * Elementor
 * Beaver Builder
 * Revolution Slider
+* Ajax Search Lite
 * Kadence Blocks
 * WPBakery (Visual Composer)
 
