@@ -1,3 +1,7 @@
+= 1.5.6 =
+
+* Tested with WP6.3
+
 = 1.5.5 =
 
 * Add compatibility for Ajax Search Lite.
