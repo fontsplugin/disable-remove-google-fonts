@@ -2,7 +2,7 @@
 Contributors: DannyCooper
 Tags: google, gdpr, dsgvo, google fonts, disable google fonts, optimize, optimization, speed
 Requires at least: 4.8
-Tested up to: 6.3
+Tested up to: 6.4
 License: GPLv2 or later
 Stable tag: trunk
 
