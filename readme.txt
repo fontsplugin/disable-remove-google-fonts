@@ -6,10 +6,12 @@ Tested up to: 6.4
 License: GPLv2 or later
 Stable tag: trunk
 
-Improve frontend performance by disabling Google Fonts. GDPR-friendly.
+Improve frontend performance by disabling Google Fonts. GDPR and DSGVO friendly.
 
 == Description ==
 Improve frontend performance by disabling [Google Fonts](https://wordpress.org/plugins/olympus-google-fonts/) loaded by themes and plugins.
+
+**Looking to Host Google Fonts locally? Check out [Fonts Plugin Pro](https://fontsplugin.com/drgf-upgrade/).**
 
 While this plugin removes Google Fonts from as many themes and plugins as possible, some require additional steps, we have detailed those here: [Remove Google Fonts from WordPress](https://fontsplugin.com/remove-disable-google-fonts/)
 
