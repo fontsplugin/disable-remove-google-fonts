@@ -26,18 +26,17 @@ class DRGF_Admin {
 	}
 
 	/**
- * Redirect to the Google Fonts Welcome page.
- */
-function admin_redirect() {
-	if ( get_option( 'drgf_do_activation_redirect', false ) ) {
-		delete_option( 'drgf_do_activation_redirect' );
-		if ( ! isset( $_GET['activate-multi'] ) && ! is_network_admin() ) {
-			wp_redirect( admin_url('themes.php?page=drgf') );
-			exit;
+	 * Redirect to the Google Fonts Welcome page.
+	 */
+	function admin_redirect() {
+		if ( get_option( 'drgf_do_activation_redirect', false ) ) {
+			delete_option( 'drgf_do_activation_redirect' );
+			if ( ! isset( $_GET['activate-multi'] ) && ! is_network_admin() ) {
+				wp_redirect( admin_url('themes.php?page=drgf') );
+				exit;
+			}
 		}
 	}
-}
-
 
 	/**
 	 * Add options page
