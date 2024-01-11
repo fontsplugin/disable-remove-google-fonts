@@ -1,3 +1,7 @@
+= 1.5.9 =
+
+* Tested with Acabado theme
+
 = 1.5.7 =
 
 * Tested with WP6.4

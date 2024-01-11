@@ -30,6 +30,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Twenty Nineteen
 * Twenty Twenty
 * GeneratePress
+* Acabado
 * Avada
 * Enfold
 * Sydney

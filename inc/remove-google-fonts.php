@@ -76,6 +76,7 @@ function drgf_dequeueu_fonts() {
 
 	remove_action( 'wp_head', 'hu_print_gfont_head_link', 2 );
 	remove_action('wp_head', 'appointment_load_google_font');
+	remove_action( 'wp_head', 'aca_pre_load_fonts' );
 }
 
 add_action( 'wp_enqueue_scripts', 'drgf_dequeueu_fonts', PHP_INT_MAX );
