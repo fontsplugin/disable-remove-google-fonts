@@ -1,3 +1,7 @@
+= 1.6.0 =
+
+* Tested with Artale theme
+
 = 1.5.9 =
 
 * Tested with Acabado theme

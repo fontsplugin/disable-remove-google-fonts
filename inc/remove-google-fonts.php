@@ -37,6 +37,9 @@ function drgf_dequeueu_fonts() {
 	// Dequeue the Jupiter theme font loader.
 	wp_dequeue_script( 'mk-webfontloader' );
 
+	// Dequeue the Codestar Framework font loader.
+	wp_dequeue_script( 'csf-google-web-fonts' );
+
 	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
@@ -284,3 +287,10 @@ add_action( 'wp_enqueue_scripts', 'drgf_remove_generatepress_fonts', 99 );
  */
 add_filter( 'asl_custom_fonts', '__return_empty_array' );
 
+/**
+ * Dequeue Google Fonts loaded in GeneratePress.
+ */
+function drgf_remove_artale_fonts() {
+	wp_dequeue_script( 'webfont-loader' );
+}
+add_action( 'wp_head', 'drgf_remove_artale_fonts', 9999 );
