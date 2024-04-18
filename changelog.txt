@@ -1,3 +1,7 @@
+= 1.6.1 =
+
+* Tested with WP6.5
+
 = 1.6.0 =
 
 * Tested with Artale theme

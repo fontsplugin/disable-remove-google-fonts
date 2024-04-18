@@ -1,8 +1,8 @@
 === Disable and Remove Google Fonts ===
 Contributors: DannyCooper
-Tags: google, gdpr, dsgvo, google fonts, disable google fonts, optimize, optimization, speed
+Tags: gdpr, dsgvo, google fonts, disable google fonts, optimize
 Requires at least: 4.8
-Tested up to: 6.4
+Tested up to: 6.5
 License: GPLv2 or later
 Stable tag: trunk
 
@@ -29,6 +29,10 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Twenty Seventeen
 * Twenty Nineteen
 * Twenty Twenty
+* Twenty Twenty-One
+* Twenty Twenty-Two
+* Twenty Twenty-Three
+* Twenty Twenty-Four
 * GeneratePress
 * Acabado
 * Avada
