@@ -53,6 +53,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 It will also remove Google Fonts loaded by the following plugins:
 
 * Divi
+* Redux
 * MailPoet
 * Elementor
 * Beaver Builder

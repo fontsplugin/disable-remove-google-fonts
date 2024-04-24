@@ -294,3 +294,10 @@ function drgf_remove_artale_fonts() {
 	wp_dequeue_script( 'webfont-loader' );
 }
 add_action( 'wp_head', 'drgf_remove_artale_fonts', 9999 );
+
+/**
+ * Disable Google Fonts in Redux.
+ */
+add_action( 'redux/loaded', function( $redux ) {
+	$redux->args['async_typography'] = false;
+} );
