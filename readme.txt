@@ -1,4 +1,4 @@
-=== Disable and Remove Google Fonts ===
+=== Disable and Remove Google Fonts | GDPR & DSGVO friendly ===
 Contributors: DannyCooper
 Tags: gdpr, dsgvo, google fonts, disable google fonts, optimize
 Requires at least: 4.8
