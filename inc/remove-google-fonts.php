@@ -1,6 +1,19 @@
 <?php
 /**
+ * This file contains functions to remove Google Fonts from themes and plugins.
+ *
+ * @package disable-remove-google-fonts
+ */
+
+/**
  * Remove DNS prefetch, preconnect and preload headers.
+ *
+ * This function removes the DNS prefetch, preconnect, and preload headers for Google Fonts.
+ * It filters the URLs array based on the relation type and removes any URLs related to Google Fonts.
+ *
+ * @param array  $urls           The array of URLs to filter.
+ * @param string $relation_type  The type of relation for the URLs.
+ * @return array The filtered array of URLs.
  */
 function drgf_remove_prefetch( $urls, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {
@@ -28,7 +41,7 @@ remove_action( 'wp_head', 'botiga_preconnect_google_fonts' );
  * Dequeue Google Fonts based on URL.
  */
 function drgf_dequeueu_fonts() {
-	// Remove fonts added by the Divi Extra theme
+	// Remove fonts added by the Divi Extra theme.
 	remove_action( 'wp_footer', 'et_builder_print_font' );
 
 	// Dequeue Google Fonts loaded by Revolution Slider.
@@ -69,7 +82,7 @@ function drgf_dequeueu_fonts() {
 	 */
 	foreach ( $wp_styles->registered as $style ) {
 		foreach( $style->deps as $dep ) {
-			$strings = ['google-fonts', 'google_fonts', 'googlefonts', 'bookyourtravel-heading-font', 'bookyourtravel-base-font', 'bookyourtravel-font-icon', 'twb-open-sans'];
+			$strings = [ 'google-fonts', 'google_fonts', 'googlefonts', 'bookyourtravel-heading-font', 'bookyourtravel-base-font', 'bookyourtravel-font-icon', 'twb-open-sans' ];
 			if ( drgf_strposa( $dep, $strings ) === true ) {
 				$wp_styles->remove( $dep );
 				$wp_styles->add( $dep, '' );
@@ -78,7 +91,7 @@ function drgf_dequeueu_fonts() {
 	}
 
 	remove_action( 'wp_head', 'hu_print_gfont_head_link', 2 );
-	remove_action('wp_head', 'appointment_load_google_font');
+	remove_action( 'wp_head', 'appointment_load_google_font' );
 	remove_action( 'wp_head', 'aca_pre_load_fonts' );
 }
 
@@ -250,7 +263,8 @@ function drgf_strposa( $haystack, $needles, $offset = 0 ) {
 		$res = strpos( $haystack, $needle, $offset );
 		if ( $res !== false ) return true;
 	}
-return false;
+
+	return false;
 }
 
 /**
@@ -259,7 +273,7 @@ return false;
 function drgf_remove_unyson_fonts() {
 	remove_action( 'wp_enqueue_scripts', array( 'Artey_Unyson_Google_Fonts', 'output_url' ), 9999 );
 };
-add_action('init', 'drgf_remove_unyson_fonts');
+add_action( 'init', 'drgf_remove_unyson_fonts' );
 
 /**
  * Dequeue Google Fonts loaded in wp-admin by the Sucuri plugin.
@@ -286,6 +300,7 @@ add_action( 'wp_enqueue_scripts', 'drgf_remove_generatepress_fonts', 99 );
  * Dequeue Google Fonts loaded by Ajax Search lite.
  */
 add_filter( 'asl_custom_fonts', '__return_empty_array' );
+add_filter( 'asp_custom_fonts', '__return_empty_array' );
 
 /**
  * Dequeue Google Fonts loaded in GeneratePress.
@@ -298,6 +313,21 @@ add_action( 'wp_head', 'drgf_remove_artale_fonts', 9999 );
 /**
  * Disable Google Fonts in Redux.
  */
-add_action( 'redux/loaded', function( $redux ) {
-	$redux->args['async_typography'] = false;
-} );
+add_action(
+	'redux/loaded',
+	function( $redux ) {
+		$redux->args['async_typography'] = false;
+	}
+);
+
+add_action( 'plugins_loaded', 'dgrf_after_plugins_loaded', 9999 );
+
+/**
+ * Run this code after all plugins have been loaded.
+ */
+function dgrf_after_plugins_loaded() {
+	/**
+	 * Dequeue Google Fonts loaded by the GroovyMenu plugin.
+	 */
+	remove_action( 'wp_head', 'groovy_menu_add_gfonts_from_pre_storage' );
+}

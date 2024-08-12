@@ -56,10 +56,11 @@ It will also remove Google Fonts loaded by the following plugins:
 * Redux
 * MailPoet
 * Elementor
+* GroovyMenu
+* Kadence Blocks
 * Beaver Builder
 * Revolution Slider
-* Ajax Search Lite
-* Kadence Blocks
+* Ajax Search Lite & Pro
 * WPBakery (Visual Composer)
 
 As well as improving page load speed, removing Google Font references can also aid with GDPR and DSGVO compliance.

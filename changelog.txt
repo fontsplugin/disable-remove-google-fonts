@@ -1,3 +1,7 @@
+= 1.6.4 =
+
+* Add compatibility for Ajax Search Pro and GroovyMenu
+
 = 1.6.3 =
 
 * Update readme
