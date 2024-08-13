@@ -81,7 +81,7 @@ function drgf_dequeueu_fonts() {
 	 * remove the stylesheet too.
 	 */
 	foreach ( $wp_styles->registered as $style ) {
-		foreach( $style->deps as $dep ) {
+		foreach ( $style->deps as $dep ) {
 			$strings = [ 'google-fonts', 'google_fonts', 'googlefonts', 'bookyourtravel-heading-font', 'bookyourtravel-base-font', 'bookyourtravel-font-icon', 'twb-open-sans' ];
 			if ( drgf_strposa( $dep, $strings ) === true ) {
 				$wp_styles->remove( $dep );
@@ -259,7 +259,7 @@ add_filter( 'cs_load_google_fonts', '__return_false' );
  */
 function drgf_strposa( $haystack, $needles, $offset = 0 ) {
 	$chr = array();
-	foreach( $needles as $needle)  {
+	foreach ( $needles as $needle ) {
 		$res = strpos( $haystack, $needle, $offset );
 		if ( $res !== false ) return true;
 	}
