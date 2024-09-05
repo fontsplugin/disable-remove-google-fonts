@@ -53,6 +53,8 @@ function drgf_dequeueu_fonts() {
 	// Dequeue the Codestar Framework font loader.
 	wp_dequeue_script( 'csf-google-web-fonts' );
 
+	wp_dequeue_script( 'mo-google-webfont' );
+
 	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {

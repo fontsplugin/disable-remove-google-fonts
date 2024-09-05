@@ -1,3 +1,7 @@
+= 1.6.5 =
+
+* Add compatibility for MailOptin
+
 = 1.6.4 =
 
 * Add compatibility for Ajax Search Pro and GroovyMenu
