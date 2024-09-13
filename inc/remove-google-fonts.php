@@ -332,4 +332,10 @@ function dgrf_after_plugins_loaded() {
 	 * Dequeue Google Fonts loaded by the GroovyMenu plugin.
 	 */
 	remove_action( 'wp_head', 'groovy_menu_add_gfonts_from_pre_storage' );
+
 }
+
+/**
+ * Dequeue Google Fonts loaded by Stackable.
+ */
+add_filter( 'stackable_enqueue_font', '__return_false' );

@@ -46,6 +46,7 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Shapely
 * OnePress
 * JupiterX
+* Stackable
 * Storefront
 * Divi Extra
 * Zerif Lite
