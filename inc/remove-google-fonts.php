@@ -49,6 +49,7 @@ function drgf_dequeueu_fonts() {
 
 	// Dequeue the Jupiter theme font loader.
 	wp_dequeue_script( 'mk-webfontloader' );
+	wp_dequeue_script( 'jupiterx-webfont' );
 
 	// Dequeue the Codestar Framework font loader.
 	wp_dequeue_script( 'csf-google-web-fonts' );
