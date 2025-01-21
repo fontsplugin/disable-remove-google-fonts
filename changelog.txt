@@ -1,3 +1,7 @@
+= 1.6.9 =
+
+* Update readme
+
 = 1.6.7 =
 
 * Remove fonts in latest version of JupiterX
