@@ -47,14 +47,16 @@ function drgf_dequeueu_fonts() {
 	// Dequeue Google Fonts loaded by Revolution Slider.
 	remove_action( 'wp_footer', array( 'RevSliderFront', 'load_google_fonts' ) );
 
-	// Dequeue the Jupiter theme font loader.
-	wp_dequeue_script( 'mk-webfontloader' );
-	wp_dequeue_script( 'jupiterx-webfont' );
-
-	// Dequeue the Codestar Framework font loader.
-	wp_dequeue_script( 'csf-google-web-fonts' );
-
-	wp_dequeue_script( 'mo-google-webfont' );
+	// Dequeue common font loader scripts.
+	$scripts_to_dequeue = array(
+		'mk-webfontloader',
+		'jupiterx-webfont',
+		'csf-google-web-fonts',
+		'mo-google-webfont',
+	);
+	foreach ( $scripts_to_dequeue as $script ) {
+		wp_dequeue_script( $script );
+	}
 
 	global $wp_styles;
 
@@ -83,9 +85,17 @@ function drgf_dequeueu_fonts() {
 	 * it with a blank value rather than removing it entirely. As that would
 	 * remove the stylesheet too.
 	 */
-	foreach ( $wp_styles->registered as $style ) {
+	if ( ! empty( $style->deps ) ) {
+		$strings = array(
+			'google-fonts',
+			'google_fonts',
+			'googlefonts',
+			'bookyourtravel-heading-font',
+			'bookyourtravel-base-font',
+			'bookyourtravel-font-icon',
+			'twb-open-sans',
+		);
 		foreach ( $style->deps as $dep ) {
-			$strings = [ 'google-fonts', 'google_fonts', 'googlefonts', 'bookyourtravel-heading-font', 'bookyourtravel-base-font', 'bookyourtravel-font-icon', 'twb-open-sans' ];
 			if ( drgf_strposa( $dep, $strings ) === true ) {
 				$wp_styles->remove( $dep );
 				$wp_styles->add( $dep, '' );
@@ -111,7 +121,7 @@ add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
  */
 add_filter(
 	'fl_builder_google_fonts_pre_enqueue',
-	function( $fonts ) {
+	function ( $fonts ) {
 		return array();
 	}
 );
@@ -121,7 +131,7 @@ add_filter(
  */
 add_filter(
 	'jupiterx_register_fonts',
-	function( $fonts ) {
+	function ( $fonts ) {
 		return array();
 	},
 	99999
@@ -199,7 +209,7 @@ if (
 	) {
 	add_filter(
 		'fusion_google_fonts',
-		function( $fonts ) {
+		function ( $fonts ) {
 			return array();
 		},
 		99999
@@ -259,12 +269,19 @@ add_filter( 'cs_load_google_fonts', '__return_false' );
 
 /**
  * Helper function to run strpos() using an array as the needle.
+ *
+ * @param string $haystack The string to search in.
+ * @param array  $needles  Array of strings to search for.
+ * @param int    $offset   Optional. Start position of search. Default 0.
+ * @return bool True if any needle is found, false otherwise.
  */
 function drgf_strposa( $haystack, $needles, $offset = 0 ) {
 	$chr = array();
 	foreach ( $needles as $needle ) {
 		$res = strpos( $haystack, $needle, $offset );
-		if ( $res !== false ) return true;
+		if ( $res !== false ) {
+			return true;
+		}
 	}
 
 	return false;
@@ -318,7 +335,7 @@ add_action( 'wp_head', 'drgf_remove_artale_fonts', 9999 );
  */
 add_action(
 	'redux/loaded',
-	function( $redux ) {
+	function ( $redux ) {
 		$redux->args['async_typography'] = false;
 	}
 );
@@ -333,7 +350,6 @@ function dgrf_after_plugins_loaded() {
 	 * Dequeue Google Fonts loaded by the GroovyMenu plugin.
 	 */
 	remove_action( 'wp_head', 'groovy_menu_add_gfonts_from_pre_storage' );
-
 }
 
 /**
