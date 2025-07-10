@@ -1,3 +1,7 @@
+= 1.7.0 =
+
+* Tested with Blocksy and Neve themes
+
 = 1.6.9 =
 
 * Update readme

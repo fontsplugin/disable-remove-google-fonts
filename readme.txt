@@ -34,22 +34,24 @@ This plugin will work with all WordPress themes and has been specifically tested
 * Twenty Twenty-Three
 * Twenty Twenty-Four
 * Twenty Twenty-Five
-* GeneratePress
 * Acabado
 * Avada
+* Blocksy
+* ColorMag
+* Divi Extra
 * Enfold
-* Sydney
+* GeneratePress
 * Hestia
 * Hueman
-* Vantage
-* ColorMag
-* Kadence
-* Shapely
-* OnePress
 * JupiterX
+* Kadence
+* Neve
+* OnePress
+* Shapely
 * Stackable
 * Storefront
-* Divi Extra
+* Sydney
+* Vantage
 * Zerif Lite
 
 It will also remove Google Fonts loaded by the following plugins:
